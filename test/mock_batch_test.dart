@@ -47,7 +47,7 @@ void main() async {
         await batch.commit();
       }
       QuerySnapshot result = await firestore.collection(users).get();
-      expect(result.docs.length, 1000);
+      expect(result.docs.length, 500);
     });
     test("fail when create 501 documents at once.", () async {
       List<Map<String, dynamic>> userDataList = await createUsers(times: 501);
