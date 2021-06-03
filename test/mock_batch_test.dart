@@ -65,7 +65,8 @@ void main() async {
           var document = firestore.collection(users).doc("${data["id"]}");
           batch.set(document, data);
         });
-        expect(() => batch.commit(), throwsException);
+  QuerySnapshot result = await firestore.collection(users).get();
+        expect(result.docs.length, 0);
       }
     });
   });
